@@ -14,21 +14,36 @@ from ode_toolkit import *
 # plt.show()
 
 # def ODE3(x,parameters):
-#     t,omega = parameters
-#     return np.array([np.sin(omega*(t-x[1])),np.ones(x[0].shape)])
+#     t,omega,v_0 = parameters
+#     return np.array([np.sin(omega*(t-x[1]/v_0)),np.ones(x[0].shape)*v_0])
 # ex3 = Analysis(ODE3,2)
-# ex3.plot_phase_potrait(np.array([10,1]))
-# slider_names = ["t","omega"]
+# # ex3.plot_phase_potrait(np.array([10,1]))
+# slider_names = ["t","omega","v_0"]
 # ex3.parameter_phase_portrait(slider_names)
-# # plt.show()
+# plt.show()
 
-def ODE4(x,parameters):
-    a,b,c,d = parameters
-    return np.array([a*x[0]+b*x[1],c*x[0]+d*x[1]])
-ex4 = Analysis(ODE4,2,[1,2,3,4])
-slider_names = ["a","b","c","d"]
-ex4.parameter_phase_portrait(slider_names)
+# def ODE4(x,parameters):
+#     a,b,c,d = parameters
+#     return np.array([a*x[0]+b*x[1],c*x[0]+d*x[1]])
+# ex4 = Analysis(ODE4,2,[1,2,3,4])
+# slider_names = ["a","b","c","d"]
+# ex4.parameter_phase_portrait(slider_names)
+
+# def ODE5(x,parameters):
+#     t = parameters
+#     return np.array([-x[1],x[0]+t])
+# ex5 = Analysis(ODE5,2)
+# # ex3.plot_phase_potrait(np.array([10,1]))
+# slider_names = ["t"]
+# ex5.parameter_phase_portrait(slider_names)
+# plt.show()
 
 
-
-
+def ODE6(x,parameters):
+    a = parameters
+    return np.array([x[0]-x[0]**2-a*x[0]*x[1],x[1]-x[1]**2-a*x[0]*x[1]])
+ex5 = Analysis(ODE6,2)
+# ex3.plot_phase_potrait(np.array([10,1]))
+slider_names = ["a"]
+ex5.parameter_phase_portrait(slider_names)
+plt.show()
